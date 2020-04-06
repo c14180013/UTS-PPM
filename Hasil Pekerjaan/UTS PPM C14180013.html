@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+	<script type="text/javascript">
+		
+	</script>
+
+	<title>UTS PPM C14180013</title>
+</head>
+<body>
+	<div data-role="page" id="page-1" data-next="page-2">
+		<div data-role="navbar">
+        	<ul>
+				<li><a href="#" class="ui-btn-active">Input Pinjaman</a></li>
+				<li><a href="#page-2" data-transition="fade">Informasi Cicilan</a></li>
+        	</ul>
+		</div>
+
+		<div role="main" class="ui-content">
+			<div class="ui-grid">
+				<label for="pinjaman">Pinjaman:</label>
+				<input type="number" name="pinjaman" id="pinjaman" value="">
+
+				<label for="waktu-pinjam">Waktu Pinjam (Cicilan):</label>
+				<input type="range" name="waktu-pinjam" id="waktu-pinjam" data-highlight="true" min="1" max="120" value="1">
+
+				<input type="button" value="Submit" id="submit">
+			</div>
+			
+			<div class="ui-grid">
+				<label for="flip-list-pinjaman">Toggle List Pinjaman:</label>
+				<input type="checkbox" data-role="flipswitch" name="flip-list-pinjaman" id="flip-list-pinjaman" checked="">
+			</div>
+
+			<div class="ui-grid">
+				<ol data-role="listview" id="list-pinjaman">
+				</ol>
+			</div>
+		</div>
+
+		<div data-role="footer" align="center">
+			<h4>C14180013</h4>
+		</div>
+	</div>
+</body>
+</html>
