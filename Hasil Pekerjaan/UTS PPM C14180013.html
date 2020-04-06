@@ -72,6 +72,33 @@
 					$("#list-pinjaman").hide();
 				}
 			});
+
+			function navprev( prev ) {
+				$.mobile.changePage("#" + prev);
+			}
+
+			function navnext( next ) {
+				$.mobile.changePage("#" + next);
+			}
+
+			$( document ).on( "swipeleft", ".ui-page", function(event) {
+			var next = $(this ).jqmData( "next" );
+			if (next && (event.target === $(this)[0])) {
+				navnext(next);
+			}
+			});
+
+			$(document).on("swiperight", ".ui-page", function(event) {
+				var prev = $(this).jqmData("prev");
+				if (prev && (event.target === $(this)[0])) {
+					navprev(prev);
+				}
+			});
+
+			$(document).on("pagechange", function(event){
+				alert("Website oleh C14180013");
+			});
+		});
 	</script>
 
 	<title>UTS PPM C14180013</title>
