@@ -72,7 +72,6 @@
 					$("#list-pinjaman").hide();
 				}
 			});
-		});
 	</script>
 
 	<title>UTS PPM C14180013</title>
@@ -105,6 +104,28 @@
 			<div class="ui-grid">
 				<ol data-role="listview" id="list-pinjaman">
 				</ol>
+			</div>
+		</div>
+
+		<div data-role="footer" align="center">
+			<h4>C14180013</h4>
+		</div>
+	</div>
+
+	<div data-role="page" id="page-2" data-prev="page-1">
+		<div data-role="navbar">
+        	<ul>
+				<li><a href="#page-1" data-transition="fade">Input Pinjaman</a></li>
+				<li><a href="#" class="ui-btn-active">Informasi Cicilan</a></li>
+        	</ul>
+		</div>
+
+		<div role="main" class="ui-content">
+			<div class="ui-grid">
+				<div class="ui-block">
+					<ol data-role="listview" id="list-cicilan">
+					</ol>
+				</div>
 			</div>
 		</div>
 
