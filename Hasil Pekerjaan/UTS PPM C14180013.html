@@ -7,7 +7,72 @@
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
 	<script type="text/javascript">
-		
+		var listPinjaman = [];
+		var maxWaktuPinjam = 0;
+
+		$(function() {
+			$("#submit").on("click", function(){
+				var pinjaman = parseInt($("#pinjaman").val());
+				var waktuPinjam = parseInt($("#waktu-pinjam").val());
+
+				if (pinjaman <= 0)
+				{
+					return;
+				}
+
+				var bunga;
+				if (waktuPinjam >= 1 && waktuPinjam <= 6)
+				{
+					bunga = 0.02;
+				}
+				else if (waktuPinjam >= 7 && waktuPinjam <= 12)
+				{
+					bunga = 0.015;
+				}
+				else if (waktuPinjam > 12)
+				{
+					bunga = 0.01;
+				}
+				else
+				{
+					return;
+				}
+
+				var pengembalian = pinjaman + (pinjaman * bunga * waktuPinjam);
+
+				var isiListview = "Pinjaman: " + pinjaman + "<br>Waktu Pinjam: " + waktuPinjam + " cicilan<br>Total Pengembalian: " + pengembalian;
+				$("#list-pinjaman").append("<li><br>" + isiListview + "</li>").listview('refresh');
+
+				listPinjaman.push([pinjaman, waktuPinjam, pengembalian]);
+
+				if (waktuPinjam > maxWaktuPinjam)
+				{
+					maxWaktuPinjam = waktuPinjam;
+				}
+
+				var isiListCicilan = "";
+				for (var i = 0; i < listPinjaman.length; i++) {
+					isiListCicilan += "<li>Cicilan " + (i + 1);
+					for (var j = 0; j < listPinjaman[i][1]; j++)
+					{
+						isiListCicilan += "<br>Bulan " + (j+1) + ": " + (listPinjaman[i][2] / listPinjaman[i][1]).toFixed(2);
+					}
+					isiListCicilan += "</li>";
+				}
+				$("#list-cicilan").html(isiListCicilan).listview('refresh');
+			});
+
+			$("#flip-list-pinjaman").on("change", function(){
+				if($(this). is(":checked"))
+				{
+					$("#list-pinjaman").show();
+				}
+				else
+				{
+					$("#list-pinjaman").hide();
+				}
+			});
+		});
 	</script>
 
 	<title>UTS PPM C14180013</title>
